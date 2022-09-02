@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import TodoHeader from "./TodoHeader";
+import MovieHeader from "./MovieHeader";
 
-export default function TodoBody({ todos, removeTodo, updateTodo }) {
+export default function MovieBody({ movies, removeMovie, updateMovie }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
 
   const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
+    updateMovie(edit.id, value);
     setEdit({
       id: null,
       value: "",
@@ -16,20 +16,20 @@ export default function TodoBody({ todos, removeTodo, updateTodo }) {
   };
 
   if (edit.id) {
-    return <TodoHeader edit={edit} onSubmit={submitUpdate} />;
+    return <MovieHeader edit={edit} onSubmit={submitUpdate} />;
   } else {
-    return todos.map((todo, index) => (
+    return movies.map((movie, index) => (
       <div id="tasks" key={index}>
         <div className="task">
-          <div className="content">{todo.text}</div>
+          <div className="content">{movie.text}</div>
           <div className="actions">
             <button
               className="edit"
-              onClick={() => setEdit({ id: todo.id, value: todo.text })}
+              onClick={() => setEdit({ id: movie.id, value: movie.text })}
             >
               Edit
             </button>
-            <button className="delete" onClick={() => removeTodo(todo.id)}>
+            <button className="delete" onClick={() => removeMovie(movie.id)}>
               Delete
             </button>
           </div>

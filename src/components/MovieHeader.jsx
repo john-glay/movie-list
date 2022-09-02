@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function TodoHeader({ edit, onSubmit }) {
+export default function MovieHeader({ edit, onSubmit }) {
   const [input, setInput] = useState(edit ? edit.value : "");
   const inputRef = useRef(null);
 
@@ -27,7 +27,7 @@ export default function TodoHeader({ edit, onSubmit }) {
           ref={inputRef}
           onChange={(e) => setInput(e.target.value)}
           name="text"
-          className="todo-input edit"
+          className="movie-input edit"
           style={{ width: "100%" }}
           placeholder="What movie do you want to watch?"
         />
